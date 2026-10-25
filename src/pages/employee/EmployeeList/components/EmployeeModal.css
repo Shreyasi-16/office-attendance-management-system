@@ -1,0 +1,134 @@
+/* =========================================================
+   EMPLOYEE MODAL POPUP FORM STYLES
+   ========================================================= */
+
+.emp-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 20px;
+}
+
+@media (max-width: 600px) {
+  .emp-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.emp-form-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.emp-form-label {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--navy-primary);
+  margin-bottom: 6px;
+}
+
+.required-star {
+  color: var(--accent-red);
+  font-weight: 700;
+}
+
+.emp-input-icon-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.emp-input-icon-wrap:focus-within {
+  border-color: #0284C7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.field-icon {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emp-text-input,
+.emp-select-input {
+  width: 100%;
+  padding: 10px 12px 10px 38px;
+  border: none;
+  background: transparent;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--text-primary);
+  outline: none;
+  border-radius: 8px;
+}
+
+.emp-select-input {
+  cursor: pointer;
+}
+
+.emp-text-input:disabled {
+  background-color: var(--navy-subtle);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+}
+
+.emp-text-input.input-error {
+  border: 1px solid var(--accent-red);
+}
+
+.emp-error-text {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent-red);
+  font-size: 11.5px;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* Modal Buttons */
+.emp-btn-cancel {
+  padding: 9px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  background-color: #ffffff;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.emp-btn-cancel:hover {
+  background-color: var(--navy-subtle);
+  color: var(--navy-primary);
+}
+
+.emp-btn-submit {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, #0A2540 0%, #0284C7 100%);
+  border: none;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.emp-btn-submit:hover {
+  background: linear-gradient(135deg, #0F355C 0%, #0369A1 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+}

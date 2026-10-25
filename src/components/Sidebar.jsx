@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Search } from 'lucide-react';
 import { NAVIGATION_ITEMS } from '../constants/navigation';
 
-export default function Sidebar({ 
-  isCollapsed, 
-  activeItemId, 
-  onSelectItem 
+export default function Sidebar({
+  isCollapsed,
+  activeItemId,
+  onSelectItem
 }) {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -61,7 +61,7 @@ export default function Sidebar({
       {/* Sidebar Footer */}
       <div className="sidebar-footer">
         <div className="sidebar-powered-by">
-          Powered by <span className="sidebar-powered-bold">Quantum IT Solution</span>
+          Powered by <span className="sidebar-powered-bold">Shreyasi Vasava</span>
         </div>
       </div>
     </aside>

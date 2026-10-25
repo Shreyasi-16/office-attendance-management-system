@@ -7,16 +7,47 @@ import {
   Users,
   Clock,
   AlertTriangle,
-  CalendarCheck,
-  Building2,
-  ShieldCheck,
   CheckCircle2
 } from 'lucide-react';
 import { NAVIGATION_ITEMS } from '../constants/navigation';
+import EmployeeList from '../pages/employee/EmployeeList/EmployeeList';
 
-export default function MainContent({ activeItemId }) {
+export default function MainContent({ activeItemId, onNavigate }) {
   const [activeTab, setActiveTab] = useState('overview');
   const [searchFilter, setSearchFilter] = useState('');
+
+  // If viewing Employee Management module
+  if (activeItemId === 'employee-mgmt') {
+    return (
+      <main className="content-area">
+        <div className="breadcrumb-container">
+          <button 
+            type="button" 
+            className="breadcrumb-pill"
+            onClick={() => onNavigate && onNavigate('dashboard')}
+            style={{ cursor: 'pointer' }}
+          >
+            <HomeIcon size={13} />
+            Home
+          </button>
+          <span className="breadcrumb-pill active">
+            ● Employee Management
+          </span>
+        </div>
+
+        <EmployeeList />
+
+        <footer className="page-bottom-footer">
+          <div>
+            © 2026 Office Attendance Management. All rights reserved. | Nurturing Trust, Delivering Value
+          </div>
+          <div>
+            Version 1.0.0
+          </div>
+        </footer>
+      </main>
+    );
+  }
   
   // Find current active item title
   const currentItem = NAVIGATION_ITEMS.find((item) => item.id === activeItemId) || NAVIGATION_ITEMS[0];

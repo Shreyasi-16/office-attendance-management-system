@@ -1,7 +1,12 @@
 import React, { useEffect, useRef } from 'react';
-import { User, Settings, Clock, LogOut, ShieldCheck, ChevronRight } from 'lucide-react';
+import { User, Settings, Clock, LogOut, ShieldCheck } from 'lucide-react';
 
-export default function ProfileDropdown({ isOpen, onClose, onLogout }) {
+export default function ProfileDropdown({ 
+  isOpen, 
+  onClose, 
+  onLogout,
+  currentUser = { name: 'System Administrator', username: 'admin@quantumit.com', role: 'Super Admin' }
+}) {
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -23,11 +28,11 @@ export default function ProfileDropdown({ isOpen, onClose, onLogout }) {
   return (
     <div className="profile-dropdown-card" ref={dropdownRef}>
       <div className="profile-info-header">
-        <div className="profile-info-name">System Administrator</div>
-        <div className="profile-info-email">admin@quantumit.com</div>
+        <div className="profile-info-name">{currentUser.name}</div>
+        <div className="profile-info-email">{currentUser.username}</div>
         <span className="profile-role-tag">
           <ShieldCheck size={12} style={{ display: 'inline', marginRight: 4 }} />
-          HR Super Admin
+          {currentUser.role}
         </span>
       </div>
 

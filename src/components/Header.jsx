@@ -5,10 +5,11 @@ import ProfileDropdown from './ProfileDropdown';
 export default function Header({ 
   onToggleSidebar, 
   onOpenLogoutModal,
-  isSidebarCollapsed 
+  isSidebarCollapsed,
+  currentUser = { name: 'System Administrator', username: 'admin@quantumit.com', role: 'Super Admin' }
 }) {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
-  const [notificationsCount, setNotificationsCount] = useState(3);
+  const [notificationsCount] = useState(3);
 
   return (
     <header className="top-header">
@@ -62,7 +63,7 @@ export default function Header({
           <div className="profile-avatar-circle">
             <User size={16} strokeWidth={2.5} />
           </div>
-          <span className="profile-name">System Administrator</span>
+          <span className="profile-name">{currentUser.name || 'System Administrator'}</span>
           <ChevronDown 
             size={16} 
             className={`profile-chevron ${isProfileOpen ? 'rotated' : ''}`} 
@@ -74,6 +75,7 @@ export default function Header({
           isOpen={isProfileOpen} 
           onClose={() => setIsProfileOpen(false)} 
           onLogout={onOpenLogoutModal}
+          currentUser={currentUser}
         />
       </div>
     </header>
